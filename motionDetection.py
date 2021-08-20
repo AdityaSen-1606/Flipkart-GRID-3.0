@@ -2,7 +2,9 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 import math
+import httplib2
 
+http = httplib2.Http()
 
 cap = cv2.VideoCapture(0);
 
@@ -51,7 +53,8 @@ while (True):
         print("dis1",dis1)
 
         if length+100<dis1<length+200:
-            print("The Bot is near the line")
+            url = "http://IP1/start"  # Instead of printing the line it will generate an url 
+            response, content = http.request(url,"GET")   # As a client it will request for an Url
 
 
 
